@@ -1,0 +1,48 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<!--<title>Untitled Document</title>-->
+<!--</head>-->
+{%extends 'index.html'%}
+{%block body%}
+
+<body>
+<form id="form1" name="form1" method="post" action="" style="color:white">
+
+<table width="200" border="1">
+  <tr>
+    <th scope="col">FIRSTNAME</th>
+    <th scope="col">LAST NAME</th>
+    <th scope="col">EXPERIENCE </th>
+    <th scope="col">SKILL</th>
+    <th scope="col">LOCATION</th>
+    <th scope="col">EMAIL</th>
+    <th scope="col">CONTACT</th>
+    <th scope="col">&nbsp;</th>
+
+  </tr>
+  {%for i in value%}
+  <tr>
+    <td>{{i[1]}}</td>
+    <td>{{i[2]}}</td>
+    <td>{{i[3]}}</td>
+    <td>{{i[4]}}</td>
+    <td>{{i[5]}}</td>
+    <td>{{i[6]}}</td>
+    <td>{{i[7]}}</td>
+
+    <td><p>{%if i[9]=='pending'%}<a href="testaccept?id={{i[8]}}">ACCEPT</a></p><a href="testaccept?id={{i[8]}}">REJECT</a>{%endif%}
+      {%if i[9]=='Tester'%}<a href="testreject?id={{i[8]}}">REJECT</a>{%endif%}
+      {%if i[9]=='rejected'%}<a href="testaccepted?id={{i[8]}}">ACCEPT</a>{%endif%}
+
+    </td>
+
+  </tr>
+  {%endfor%}
+</table>
+</form>
+</body>
+
+{%endblock%}
+<!--</html>-->
